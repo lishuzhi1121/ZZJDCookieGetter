@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ZZQLSettingsViewController" customModule="JDCookie_Getter" customModuleProvider="target">
+            <connections>
+                <outlet property="qlClientIDTextField" destination="6uL-cl-f5o" id="Gmc-Ew-Ta0"/>
+                <outlet property="qlClientSecretTextField" destination="4ir-YU-AsI" id="d8M-gI-ABq"/>
+                <outlet property="qlURLTextField" destination="pNU-hF-m1O" id="7sq-TT-KZd"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="266"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qDQ-aE-mdH">
+                    <rect key="frame" x="14" y="234" width="178" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="🐉配置后可以一键发送到青龙" id="Q7H-Uv-7Uo">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Obh-4Y-5P3">
+                    <rect key="frame" x="14" y="202" width="63" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="青龙地址：" id="vfH-fM-T7w">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C1Z-kz-Lbz">
+                    <rect key="frame" x="14" y="170" width="59" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="ClientID：" id="fYh-Ph-Iti">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h40-4r-Ola">
+                    <rect key="frame" x="14" y="138" width="86" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="ClientSecret：" id="yXl-T0-In9">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" verticalHuggingPriority="750" contentType="url" translatesAutoresizingMaskIntoConstraints="NO" id="pNU-hF-m1O">
+                    <rect key="frame" x="106" y="200" width="358" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="青龙URL地址" drawsBackground="YES" id="ErR-PF-KrF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ir-YU-AsI">
+                    <rect key="frame" x="106" y="136" width="358" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="青龙系统应用的ClientSecret" drawsBackground="YES" id="6Mg-dp-Wtl">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oho-X1-QVb">
+                    <rect key="frame" x="14" y="56" width="327" height="48"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" id="lx8-W9-000">
+                        <font key="font" metaFont="system"/>
+                        <string key="title">设置说明：
+进入青龙面板，选择系统设置-应用设置-创建应用
+名称随意填写，权限全选，创建好后复制生成的对应参数</string>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wQ7-q1-Q4J">
+                    <rect key="frame" x="385" y="63" width="86" height="32"/>
+                    <buttonCell key="cell" type="push" title="测试登陆" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ESO-jp-teq">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClickTestLoginButton:" target="-2" id="YqI-wM-r9l"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Pf-08-s9D">
+                    <rect key="frame" x="411" y="9" width="60" height="32"/>
+                    <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6X9-UV-1pz">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClickSaveButton:" target="-2" id="Grw-SY-IbG"/>
+                    </connections>
+                </button>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-cl-f5o">
+                    <rect key="frame" x="106" y="168" width="358" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="青龙系统应用的ClientID" drawsBackground="YES" id="aAt-G8-yj7">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7Pf-08-s9D" secondAttribute="trailing" constant="16" id="2gQ-Se-a5x"/>
+                <constraint firstItem="Obh-4Y-5P3" firstAttribute="top" secondItem="qDQ-aE-mdH" secondAttribute="bottom" constant="16" id="5Vp-lE-hna"/>
+                <constraint firstItem="qDQ-aE-mdH" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="8OT-Kc-05z"/>
+                <constraint firstItem="4ir-YU-AsI" firstAttribute="centerY" secondItem="h40-4r-Ola" secondAttribute="centerY" id="AAv-VE-YTj"/>
+                <constraint firstAttribute="bottom" secondItem="7Pf-08-s9D" secondAttribute="bottom" constant="16" id="CE4-5Y-KKq"/>
+                <constraint firstItem="Obh-4Y-5P3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="CwF-lV-YEa"/>
+                <constraint firstItem="4ir-YU-AsI" firstAttribute="leading" secondItem="h40-4r-Ola" secondAttribute="trailing" constant="8" symbolic="YES" id="LUf-nU-BGi"/>
+                <constraint firstItem="6uL-cl-f5o" firstAttribute="leading" secondItem="4ir-YU-AsI" secondAttribute="leading" id="P3D-v4-SNJ"/>
+                <constraint firstItem="h40-4r-Ola" firstAttribute="top" secondItem="C1Z-kz-Lbz" secondAttribute="bottom" constant="16" id="WKA-f7-UZS"/>
+                <constraint firstItem="C1Z-kz-Lbz" firstAttribute="top" secondItem="Obh-4Y-5P3" secondAttribute="bottom" constant="16" id="Whb-jh-T6m"/>
+                <constraint firstAttribute="trailing" secondItem="pNU-hF-m1O" secondAttribute="trailing" constant="16" id="bhx-dW-Yob"/>
+                <constraint firstItem="pNU-hF-m1O" firstAttribute="centerY" secondItem="Obh-4Y-5P3" secondAttribute="centerY" id="cHR-a9-83r"/>
+                <constraint firstItem="oho-X1-QVb" firstAttribute="top" secondItem="4ir-YU-AsI" secondAttribute="bottom" constant="32" id="cU6-gb-tUD"/>
+                <constraint firstAttribute="trailing" secondItem="4ir-YU-AsI" secondAttribute="trailing" constant="16" id="cuj-3X-NyO"/>
+                <constraint firstItem="pNU-hF-m1O" firstAttribute="leading" secondItem="4ir-YU-AsI" secondAttribute="leading" id="drb-0e-KW3"/>
+                <constraint firstItem="qDQ-aE-mdH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="16" id="fLJ-fB-lZH"/>
+                <constraint firstItem="wQ7-q1-Q4J" firstAttribute="centerY" secondItem="oho-X1-QVb" secondAttribute="centerY" id="hjo-mG-db7"/>
+                <constraint firstAttribute="trailing" secondItem="6uL-cl-f5o" secondAttribute="trailing" constant="16" id="l6e-nu-Sbo"/>
+                <constraint firstItem="6uL-cl-f5o" firstAttribute="centerY" secondItem="C1Z-kz-Lbz" secondAttribute="centerY" id="nNX-nP-1Be"/>
+                <constraint firstAttribute="trailing" secondItem="wQ7-q1-Q4J" secondAttribute="trailing" constant="16" id="qMV-zc-Aw4"/>
+                <constraint firstItem="oho-X1-QVb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="t6t-FT-hkn"/>
+                <constraint firstItem="C1Z-kz-Lbz" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="xl8-ns-X9G"/>
+                <constraint firstItem="h40-4r-Ola" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="yse-x4-lWg"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="203"/>
+        </customView>
+    </objects>
+</document>

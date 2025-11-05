@@ -1,0 +1,139 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'fileutils'
+
+# 工程名称
+project_name = "ZZJDCookieGetter"
+# scheme名称
+app_scheme = "ZZJDCookieGetter"
+# workspace 文件名
+app_workspace = "ZZJDCookieGetter.xcworkspace"
+current_pwd = Dir.pwd
+# DMG 素材包存放路径
+resourcesDir = "#{current_pwd}/resources"
+# DMG 窗口尺寸
+dmg_window_width = 768
+dmg_window_height = 576
+# 打包结果.app存放路径
+outputDir = "#{current_pwd}/out"
+# 签名/公证/打包dmg的目录
+packageDir = "#{current_pwd}/package"
+# app 文件名
+app_file_name = "JDCookie Getter.app"
+# app文件路径
+app_file_path = "#{packageDir}/#{app_file_name}"
+# dSYM zip压缩文件路径
+app_dsym_zip_path = "#{app_file_path}.dSYM.zip"
+# zip压缩文件路径
+zip_file_path = "#{app_file_path}.zip"
+
+# apple id
+sign_apple_id = "xxxxxxx@gmail.com" # TODO: 替换为你的开发者账号
+# password (App专用密码)
+sign_password = "xxxx-xxxx-xxxx-xxxx" # TODO: 替换为你的开发者账号后台创建的用于给公证的专用密码
+# Team ID
+sign_team_id = "XXXXXXXXX" # TODO: 替换为你的证书对应的TeamID
+# 钥匙串密钥凭证名称
+keychain_profile_name = "XXXXXXXXXXXXXXXXX" # TODO: 替换为你的钥匙串里用于给公证的凭证名称
+# 证书名称
+sign_cert_name = ""
+
+default_platform(:mac)
+
+platform :mac do
+
+  before_all do |lane, options|
+    puts 'before_all do this.'
+    puts options
+    sign_cert_name = `./find_cert.sh #{sign_team_id}`
+    sign_cert_name = sign_cert_name.strip # 去除前后空白换行等字符
+    if sign_cert_name.empty?
+      UI.user_error! "❌Error: 找不到对应的证书 Team ID: #{sign_team_id}"
+    end
+    if Dir.exist?(outputDir)
+      UI.important "#{outputDir} 已存在, 即将删除..."
+      FileUtils.rm_rf(outputDir)
+    end
+    if Dir.exist?(packageDir)
+      UI.important "#{packageDir} 已存在, 即将删除..."
+      FileUtils.rm_rf(packageDir)
+    end
+    
+  end
+
+  desc "自动打包"
+  lane :auto_package do
+    UI.message '开始打包...'
+    gym(workspace: app_workspace,clean: true,output_directory: outputDir,export_method: "mac-application")
+    if Dir.exist?(outputDir)
+      system "cp -R #{outputDir} #{packageDir}"
+    else
+      UI.user_error! "❌Error: 打包失败"
+    end
+    if File.exist?(app_dsym_zip_path)
+      File.delete(app_dsym_zip_path)
+    end
+    UI.message "✅Success: 打包完成, 开始签名..."
+    res = system "codesign -f -o runtime -s '#{sign_cert_name}' -v '#{app_file_path}' --deep"
+    if !res
+      UI.user_error! "❌Error: 签名失败☹️ cert: '#{sign_cert_name}' app: '#{app_file_path}'"
+    end
+    UI.message "✅Success: 签名成功, 开始压缩..."
+    res = system "ditto -c -k -V --keepParent '#{app_file_path}' '#{app_file_path}'.zip"
+    if !res
+      UI.user_error! "❌Error: 压缩失败☹️ app: #{app_file_path}"
+    end
+    UI.message "✅Success: 压缩成功, 开始提交公证..."
+    res = system "xcrun notarytool submit -v '#{zip_file_path}' --apple-id '#{sign_apple_id}' --password '#{sign_password}' --team-id '#{sign_team_id}' --keychain-profile '#{keychain_profile_name}' --wait --no-s3-acceleration --timeout '15m'"
+    if !res
+      UI.user_error! "❌Error: 公证失败☹️ zip: #{zip_file_path}"
+    end
+    UI.message "✅Success: 公证成功, 开始注入认证信息..."
+    if File.exist?(zip_file_path)
+      File.delete(zip_file_path)
+    end
+    res = system "xcrun stapler staple '#{app_file_path}'"
+    if !res
+      UI.user_error! "❌Error: 注入认证信息失败☹️ app: #{app_file_path}"
+    end
+    UI.message "✅Success: 注入成功, 开始打包DMG..."
+    system "cp #{resourcesDir}/* #{packageDir}"
+    UI.important "‼️当前工作路径: #{Dir.pwd}"
+    UI.message "切换至打包目录: #{packageDir}"
+    Dir.chdir(packageDir)
+    UI.important "‼️切换后工作路径: #{Dir.pwd}"
+    system "create-dmg --volname '#{project_name}' \
+            --volicon 'icon.icns' \
+            --background 'bg.png' \
+            --window-pos 376 188 \
+            --window-size #{dmg_window_width} #{dmg_window_height} \
+            --text-size 16 \
+            --icon-size 128 \
+            --icon '#{app_file_name}' #{dmg_window_width * 0.2} #{dmg_window_height * 0.5} \
+            --hide-extension '#{app_file_name}' \
+            --app-drop-link #{dmg_window_width * 0.8} #{dmg_window_height * 0.5} \
+            --no-internet-enable \
+            '#{project_name}.dmg' \
+            '#{app_file_name}/'"
+
+  end
+
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    puts 'custom_lane do this.'
+    
+  end
+end

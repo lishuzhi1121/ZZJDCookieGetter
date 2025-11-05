@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ZZContainerViewController" customModule="JDCookie_Getter" customModuleProvider="target">
+            <connections>
+                <outlet property="jdCookieTextField" destination="U2L-UO-fsu" id="src-gq-QVN"/>
+                <outlet property="jdCookiesTableView" destination="TOX-qK-L50" id="Nep-yx-QK9"/>
+                <outlet property="tableRefreshButton" destination="EhT-IL-veb" id="VwM-ja-568"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="636" height="559"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8P6-kL-4NQ">
+                    <rect key="frame" x="14" y="527" width="70" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="JD Cookie:" id="4aO-fQ-xUC">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U2L-UO-fsu">
+                    <rect key="frame" x="16" y="447" width="604" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="l2P-0B-qCc"/>
+                    </constraints>
+                    <textFieldCell key="cell" truncatesLastVisibleLine="YES" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" id="LU1-GA-blg">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="da2-9k-seX">
+                    <rect key="frame" x="541" y="516" width="86" height="32"/>
+                    <buttonCell key="cell" type="push" title="青龙配置" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8xw-nG-zps">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClickQLSettingsButton:" target="-2" id="s7b-ie-vxL"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="407-k8-ndZ">
+                    <rect key="frame" x="528" y="404" width="99" height="32"/>
+                    <buttonCell key="cell" type="push" title="发送到青龙" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ufe-ay-eGi">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClickSend2QLButton:" target="-2" id="xuY-lz-De0"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7nB-rS-tJ4">
+                    <rect key="frame" x="9" y="404" width="60" height="32"/>
+                    <buttonCell key="cell" type="push" title="刷新" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="M0P-Af-ngU">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClickRefreshButton:" target="-2" id="GnB-aR-scz"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z1U-Io-05m">
+                    <rect key="frame" x="71" y="404" width="86" height="32"/>
+                    <buttonCell key="cell" type="push" title="重新登陆" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MDF-n4-bfA">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClickReLoginButton:" target="-2" id="h2D-DI-MRE"/>
+                    </connections>
+                </button>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f96-Qe-P0J">
+                    <rect key="frame" x="16" y="113" width="604" height="266"/>
+                    <clipView key="contentView" id="9PM-FW-mYK">
+                        <rect key="frame" x="1" y="1" width="602" height="264"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" tableStyle="plain" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="RAt-bm-Dfw" viewBased="YES" id="TOX-qK-L50">
+                                <rect key="frame" x="0.0" y="0.0" width="602" height="236"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <size key="intercellSpacing" width="17" height="0.0"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="ZZJDCookiesTableColumnNum" width="33" minWidth="10" maxWidth="3.4028234663852886e+38" id="z39-FV-Qo9">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="序号">
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="oO9-Fk-dIZ">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <prototypeCellViews>
+                                            <tableCellView id="h4l-74-aw9">
+                                                <rect key="frame" x="8" y="0.0" width="33" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JUS-Dh-3aO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="16"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="1" id="Hrh-CA-SIN">
+                                                            <font key="font" metaFont="cellTitle"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <connections>
+                                                    <outlet property="textField" destination="JUS-Dh-3aO" id="Vuw-tC-drR"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                    <tableColumn identifier="ZZJDCookiesTableColumnName" width="88" minWidth="40" maxWidth="1000" id="Uxd-Ti-WRn">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="名称">
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="OMM-LZ-ya6">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <prototypeCellViews>
+                                            <tableCellView id="iQC-cJ-wms" customClass="ZZJDEnvCommonTextCellView" customModule="JDCookie_Getter" customModuleProvider="target">
+                                                <rect key="frame" x="58" y="0.0" width="88" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                    <tableColumn identifier="ZZJDCookiesTableColumnValue" width="231" minWidth="10" maxWidth="3.4028234663852886e+38" id="VnR-5u-9wj">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="值">
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="zMp-UF-6wf">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <prototypeCellViews>
+                                            <tableCellView id="tph-09-Gk7" customClass="ZZJDEnvCommonTextCellView" customModule="JDCookie_Getter" customModuleProvider="target">
+                                                <rect key="frame" x="163" y="0.0" width="231" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                    <tableColumn identifier="ZZJDCookiesTableColumnStatus" width="51" minWidth="40" maxWidth="1000" id="3Fk-ow-ALA">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="状态">
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="jop-c8-cN6">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <prototypeCellViews>
+                                            <tableCellView id="jze-9q-Sh8" customClass="ZZJDEnvStatusCellView" customModule="JDCookie_Getter" customModuleProvider="target">
+                                                <rect key="frame" x="411" y="0.0" width="51" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                    <tableColumn identifier="ZZJDCookiesTableColumnTime" width="109" minWidth="10" maxWidth="3.4028234663852886e+38" id="eVd-X8-H3r">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="更新时间">
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Aa5-N8-Ggn">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <prototypeCellViews>
+                                            <tableCellView id="9Mu-ru-c0p" customClass="ZZJDEnvCommonTextCellView" customModule="JDCookie_Getter" customModuleProvider="target">
+                                                <rect key="frame" x="479" y="0.0" width="109" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="266" id="EDK-gN-teJ"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7MG-5x-8HX">
+                        <rect key="frame" x="1" y="311" width="602" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="skP-Ms-ie6">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <tableHeaderView key="headerView" wantsLayer="YES" id="RAt-bm-Dfw">
+                        <rect key="frame" x="0.0" y="0.0" width="602" height="28"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableHeaderView>
+                </scrollView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EhT-IL-veb">
+                    <rect key="frame" x="572" y="129" width="32" height="32"/>
+                    <buttonCell key="cell" type="inline" bezelStyle="inline" image="NSRefreshTemplate" imagePosition="overlaps" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SJy-z0-X9b">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystemBold"/>
+                    </buttonCell>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="KHy-wD-9Ex"/>
+                        <constraint firstAttribute="height" constant="32" id="vn0-kO-VqW"/>
+                    </constraints>
+                    <connections>
+                        <action selector="onClickTableRefreshButton:" target="-2" id="Muy-W5-2uj"/>
+                    </connections>
+                </button>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SVG-mC-akT">
+                    <rect key="frame" x="133" y="8" width="371" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Copyright © 2023-2025 ILOVEWS.com All Rights Reserved." id="qmm-9a-DW7">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="8P6-kL-4NQ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="135-Pl-u2I"/>
+                <constraint firstItem="7nB-rS-tJ4" firstAttribute="top" secondItem="U2L-UO-fsu" secondAttribute="bottom" constant="16" id="5mg-5b-Fwc"/>
+                <constraint firstItem="EhT-IL-veb" firstAttribute="trailing" secondItem="f96-Qe-P0J" secondAttribute="trailing" constant="-16" id="72T-rx-dCx"/>
+                <constraint firstItem="f96-Qe-P0J" firstAttribute="top" secondItem="407-k8-ndZ" secondAttribute="bottom" constant="32" id="AGC-K5-w61"/>
+                <constraint firstItem="7nB-rS-tJ4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="AO3-Py-ZjR"/>
+                <constraint firstItem="f96-Qe-P0J" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="B1O-Kh-nH9"/>
+                <constraint firstAttribute="trailing" secondItem="f96-Qe-P0J" secondAttribute="trailing" constant="16" id="D2T-32-18l"/>
+                <constraint firstItem="Z1U-Io-05m" firstAttribute="leading" secondItem="7nB-rS-tJ4" secondAttribute="trailing" constant="16" id="EiQ-5s-jqx"/>
+                <constraint firstItem="SVG-mC-akT" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="F4S-Uy-vD8"/>
+                <constraint firstItem="EhT-IL-veb" firstAttribute="bottom" secondItem="f96-Qe-P0J" secondAttribute="bottom" constant="-16" id="Jse-bR-qCZ"/>
+                <constraint firstItem="Z1U-Io-05m" firstAttribute="top" secondItem="U2L-UO-fsu" secondAttribute="bottom" constant="16" id="LgS-qF-g7c"/>
+                <constraint firstAttribute="trailing" secondItem="407-k8-ndZ" secondAttribute="trailing" constant="16" id="PKa-gs-bBs"/>
+                <constraint firstAttribute="trailing" secondItem="da2-9k-seX" secondAttribute="trailing" constant="16" id="Pfn-kM-8OH"/>
+                <constraint firstItem="da2-9k-seX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="16" id="Q2L-2X-Aiz"/>
+                <constraint firstAttribute="trailing" secondItem="U2L-UO-fsu" secondAttribute="trailing" constant="16" id="Tvb-eb-hwR"/>
+                <constraint firstItem="8P6-kL-4NQ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="16" id="UXd-Mx-31m"/>
+                <constraint firstItem="407-k8-ndZ" firstAttribute="top" secondItem="U2L-UO-fsu" secondAttribute="bottom" constant="16" id="bDJ-O9-Shk"/>
+                <constraint firstAttribute="bottom" secondItem="SVG-mC-akT" secondAttribute="bottom" constant="8" id="e7a-SF-Cts"/>
+                <constraint firstItem="U2L-UO-fsu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="exn-oy-gBY"/>
+                <constraint firstItem="U2L-UO-fsu" firstAttribute="top" secondItem="8P6-kL-4NQ" secondAttribute="bottom" constant="16" id="xOW-x5-rTH"/>
+            </constraints>
+            <point key="canvasLocation" x="184" y="218.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSRefreshTemplate" width="18" height="21"/>
+    </resources>
+</document>
