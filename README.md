@@ -1,5 +1,5 @@
 # ZZJDCookieGetter
-这是一个运行在Mac上配合青龙面板使用的京东Cookie获取App。
+这是一个运行在Mac上配合 [青龙面板](https://qinglong.apifox.cn/) 使用的京东Cookie获取的App。
 
 ![Home](https://raw.githubusercontent.com/lishuzhi1121/ZZJDCookieGetter/main/images/home.png)
 
