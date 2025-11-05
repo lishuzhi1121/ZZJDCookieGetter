@@ -1,0 +1,2 @@
+# ZZJDCookieGetter
+这是一个运行在Mac上配合青龙面板使用的京东Cookie获取App
